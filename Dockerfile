@@ -10,10 +10,10 @@ COPY setenv.sh $CATALINA_HOME/bin/
 VOLUME $CATALINA_HOME/conf
 
 RUN set -x \
-    && curl "$DOWNLOAD_URL" --output ${CATALINA_HOME}/webapps/tuerauf.war \
-    && touch               "${CATALINA_HOME}/webapps/tuerauf.war \
-    && chmod -R 700        "${CATALINA_HOME}" \
-    && chown daemon:daemon "${CATALINA_HOME}"
+    && curl --silent --output "${CATALINA_HOME}/webapps/tuerauf.war" "$DOWNLOAD_URL" \
+    && touch                  "${CATALINA_HOME}/webapps/tuerauf.war" \
+    && chmod -R 700           "${CATALINA_HOME}/conf" \
+    && chown -R daemon:daemon "${CATALINA_HOME}/conf"
 
 #see tomcat: EXPOSE 8080
 #see tomcat: WORKDIR $CATALINA_HOME
