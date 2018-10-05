@@ -1,4 +1,5 @@
-FROM tomcat:7.0-jre8
+FROM tomcat:7.0.91-jre8-alpine
+# see also pom.xml in java project
 
 MAINTAINER Dirk Steinkopf "https://github.com/dsteinkopf"
 
