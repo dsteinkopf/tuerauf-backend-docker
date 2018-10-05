@@ -11,7 +11,7 @@ COPY setenv.sh $CATALINA_HOME/bin/
 VOLUME $CATALINA_HOME/conf
 
 RUN set -x \
-    && curl --silent --output "${CATALINA_HOME}/webapps/tuerauf.war" "$DOWNLOAD_URL" \
+    && wget -q --output-document "${CATALINA_HOME}/webapps/tuerauf.war" "$DOWNLOAD_URL" \
     && touch                  "${CATALINA_HOME}/webapps/tuerauf.war" \
     && chmod -R 700           "${CATALINA_HOME}/conf" \
     && chmod -R 700           "${CATALINA_HOME}/temp" \
